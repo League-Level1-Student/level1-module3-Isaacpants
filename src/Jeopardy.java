@@ -30,7 +30,7 @@ public class Jeopardy implements ActionListener {
 	private JButton secondButton;
 	private JButton thirdButton, fourthButton;
 	
-	private JPanel quizPanel;
+	private JPanel jp2;
 	int score = 0;
 	JLabel scoreBox = new JLabel("0");
 	int buttonCount = 0;
@@ -40,23 +40,23 @@ public class Jeopardy implements ActionListener {
 	}
 
 	private void start() {
-		JFrame frame = new JFrame();
-		quizPanel = new JPanel();
-		frame.setLayout(new BorderLayout());
+		JFrame jf = new JFrame();
+		jp2 = new JPanel();
+		jf.setLayout(new BorderLayout());
 		
 		// 1. Make the frame show up
-
+jf.setVisible(true);
 		// 2. Give your frame a title
-		
+		jf.setTitle("JEOPARDY");
 		// 3. Create a JPanel variable to hold the header using the createHeader method
-		
+		JPanel jp = createHeader("pencils");
 		// 4. Add the header component to the quizPanel
-		
+		jp.add(jp);
 		// 5. Add the quizPanel to the frame
-
+		jf.add(jp);
 		
 		// 6. Use the createButton method to set the value of firstButton 
-	
+	firstButton= createButton("$200");
 	// 7. Add the firstButton to the quizPanel
 		
 		// 8. Write the code inside the createButton() method below. Check that your game looks like Figure 1 in the Jeopardy Handout - http://bit.ly/1bvnvd4.
@@ -70,11 +70,11 @@ public class Jeopardy implements ActionListener {
 
 		// 12. Fill in the actionPerformed() method below
 				
-		frame.pack();
-		quizPanel.setLayout(new GridLayout(buttonCount+1, 3));
-		frame.add(makeScorePanel(), BorderLayout.NORTH);
-		frame.setSize(Toolkit.getDefaultToolkit().getScreenSize().height, Toolkit.getDefaultToolkit().getScreenSize().width);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		jf.pack();
+		jp.setLayout(new GridLayout(buttonCount+1, 3));
+		jf.add(makeScorePanel(), BorderLayout.NORTH);
+		jf.setSize(Toolkit.getDefaultToolkit().getScreenSize().height, Toolkit.getDefaultToolkit().getScreenSize().width);
+		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 	/*
@@ -87,7 +87,7 @@ public class Jeopardy implements ActionListener {
 	
 	private JButton createButton(String dollarAmount) {
 		// Create a new JButton
-		
+		JButton jb1 = new JButton();
 		// Set the text of the button to the dollarAmount
 		
 		// Increment the buttonCount (this should make the layout vertical)
