@@ -31,8 +31,12 @@ public class Jeopardy implements ActionListener {
 	private JButton thirdButton, fourthButton;
 
 	private JPanel jp2;
+	int prizeMoney2= 200;
+	int prizeMoney4= 400;
+	int prizeMoney6= 600;
+	int prizeMoney8= 800;
 	int score = 0;
-	JLabel scoreBox = new JLabel("0");
+	JLabel scoreBox = new JLabel(""+score);
 	int buttonCount = 0;
 
 	public static void main(String[] args) {
@@ -49,40 +53,34 @@ public class Jeopardy implements ActionListener {
 		// 2. Give your frame a title
 		jf.setTitle("JEOPARDY");
 		// 3. Create a JPanel variable to hold the header using the createHeader method
-		JPanel jp = createHeader("pencils");
+		JPanel jp = createHeader("Questions");
 		// 4. Add the header component to the quizPanel
 		jp2.add(jp);
 		// 5. Add the quizPanel to the frame
-		jf.add(jp);
+		jf.add(jp2);
 
 		// 6. Use the createButton method to set the value of firstButton
 		firstButton = createButton("$200");
+
 		// 7. Add the firstButton to the quizPanel
 		jp2.add(firstButton);
 		// 8. Write the code inside the createButton() method below. Check that your
 		// game looks like Figure 1 in the Jeopardy Handout - http://bit.ly/1bvnvd4.
-jf.add(jb1000);
-jf.add(jb800);
-jf.add(jb600);
-jf.add(jb400);
-jf.add(jb200);
-jb200.setText("200");
-jb400.setText("400");
-jb600.setText("600");
-jb800.setText("800");
-jb1000.setText("1000");
-jb200.setSize(10,10);
-jb400.setSize(10,10);
-jb600.setSize(10, 10);
-jb800.setSize(10, 10);
-jb1000.setSize(10, 10);
+
 		// 9. Use the secondButton variable to hold a button using the createButton
 		// method
-
+		secondButton = createButton("$400");
+		thirdButton = createButton("$600");
+		fourthButton = createButton("$800");
+		jp2.add(thirdButton);
+		jp2.add(fourthButton);
 		// 10. Add the secondButton to the quizPanel
-
+		jp2.add(secondButton);
 		// 11. Add action listeners to the buttons (2 lines of code)
-
+		firstButton.addActionListener(this);
+		secondButton.addActionListener(this);
+		thirdButton.addActionListener(this);
+		fourthButton.addActionListener(this);
 		// 12. Fill in the actionPerformed() method below
 
 		jf.pack();
@@ -94,7 +92,11 @@ jb1000.setSize(10, 10);
 		// 13. Use the method provided to play the Jeopardy theme music
 		playJeopardyTheme();
 		// 14. Add buttons so that you have $200, $400, $600, $800 and $1000 questions
-
+		jf.add(jb1000);
+		jf.add(jb800);
+		jf.add(jb600);
+		jf.add(jb400);
+		jf.add(jb200);
 	}
 
 	JButton jb200 = new JButton();
@@ -104,6 +106,7 @@ jb1000.setSize(10, 10);
 	JButton jb1000 = new JButton();
 
 	private JButton createButton(String dollarAmount) {
+
 		// Create a new JButton
 		JButton jb1 = new JButton();
 		// Set the text of the button to the dollarAmount
@@ -112,7 +115,7 @@ jb1000.setSize(10, 10);
 		buttonCount++;
 		// Return your new button instead of the temporary button
 
-		return new JButton("temporary button");
+		return jb1;
 	}
 
 	public void actionPerformed(ActionEvent arg0) {
@@ -125,7 +128,7 @@ jb1000.setSize(10, 10);
 		// If the buttonPressed was the firstButton
 		if (buttonPressed == firstButton) {
 			// Call the askQuestion() method
-			askQuestion("what was made in Nuremberg, Germany on 1662", "what is pencil", buttonCount);
+			askQuestion("a remake of this scary movie was released on 6/6/2006 30 years after the release of the original", "What is The Omen", buttonCount);
 		
 		}
 		// Fill in the askQuestion() method. When you play the game, the score should
@@ -141,11 +144,54 @@ jb1000.setSize(10, 10);
 
 	private void askQuestion(String question, String correctAnswer, int prizeMoney) {
 		// Remove this temporary message
-		JOptionPane.showMessageDialog(null, "this is where the question will be asked");
+		String q = JOptionPane.showInputDialog(
+				"a remake of this scary movie was released on 6/6/2006 30 years after the release of the original");
 		// Use a pop up to ask the user the question
 
 		// If the answer is correct
+		if (q.equals("What is The Omen")) {
+			JOptionPane.showMessageDialog(null, "correct");
+			score+=prizeMoney2;
+			
+		}else {
+			score-=prizeMoney2;
+		}
+		String r = JOptionPane.showInputDialog(
+				"a remake of this scary movie was released on 6/6/2006 30 years after the release of the original");
+		// Use a pop up to ask the user the question
 
+		// If the answer is correct
+		if (r.equals("What is The Omen")) {
+			JOptionPane.showMessageDialog(null, "correct");
+			score+=prizeMoney4;
+			
+		}else {
+			score-=prizeMoney4;
+		}
+		String s = JOptionPane.showInputDialog(
+				"a remake of this scary movie was released on 6/6/2006 30 years after the release of the original");
+		// Use a pop up to ask the user the question
+
+		// If the answer is correct
+		if (s.equals("What is The Omen")) {
+			JOptionPane.showMessageDialog(null, "correct");
+			score+=prizeMoney6;
+			
+		}else {
+			score-=prizeMoney6;
+		}
+		String t = JOptionPane.showInputDialog(
+				"a remake of this scary movie was released on 6/6/2006 30 years after the release of the original");
+		// Use a pop up to ask the user the question
+
+		// If the answer is correct
+		if (t.equals("What is The Omen")) {
+			JOptionPane.showMessageDialog(null, "correct");
+			score+=prizeMoney8;
+			
+		}else {
+			score-=prizeMoney8;
+		}
 		// Increase the score by the prizeMoney
 
 		// Call the updateScore() method
@@ -159,7 +205,7 @@ jb1000.setSize(10, 10);
 		// Pop up a message to tell the user the correct answer
 
 		// Call the updateScore() method
-
+updateScore();
 	}
 
 	public void playJeopardyTheme() {
@@ -181,14 +227,14 @@ jb1000.setSize(10, 10);
 
 	private Component makeScorePanel() {
 		JPanel panel = new JPanel();
-		panel.add(new JLabel("score:"));
+	scoreBox.setText(""+score);
 		panel.add(scoreBox);
 		panel.setBackground(Color.CYAN);
 		return panel;
 	}
 
 	private void updateScore() {
-		scoreBox.setText("" + score);
+		scoreBox.setText("score:" + score);
 	}
 
 	private JPanel createHeader(String topicName) {
