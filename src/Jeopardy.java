@@ -130,6 +130,18 @@ public class Jeopardy implements ActionListener {
 			// Call the askQuestion() method
 			askQuestion("a remake of this scary movie was released on 6/6/2006 30 years after the release of the original", "What is The Omen", buttonCount);
 		
+		}if (buttonPressed == secondButton) {
+			// Call the askQuestion() method
+			askQuestion("a remake of this scary movie was released on 6/6/2006 30 years after the release of the original", "What is The Omen", buttonCount);
+		
+		}if (buttonPressed == thirdButton) {
+			// Call the askQuestion() method
+			askQuestion("a remake of this scary movie was released on 6/6/2006 30 years after the release of the original", "What is The Omen", buttonCount);
+		
+		}if (buttonPressed == fourthButton) {
+			// Call the askQuestion() method
+			askQuestion("a remake of this scary movie was released on 6/6/2006 30 years after the release of the original", "What is The Omen", buttonCount);
+		
 		}
 		// Fill in the askQuestion() method. When you play the game, the score should
 		// change.
@@ -145,16 +157,23 @@ public class Jeopardy implements ActionListener {
 	private void askQuestion(String question, String correctAnswer, int prizeMoney) {
 		// Remove this temporary message
 		String q = JOptionPane.showInputDialog(
-				"a remake of this scary movie was released on 6/6/2006 30 years after the release of the original");
+				"since 1986, Reaching the quarterFinals of this event has entitled you to free tickets and free tea for life");
+		
+		
+		
+		
+		
 		// Use a pop up to ask the user the question
 
 		// If the answer is correct
-		if (q.equals("What is The Omen")) {
+		if (q.equals("What is Wimbledon")) {
 			JOptionPane.showMessageDialog(null, "correct");
 			score+=prizeMoney2;
-			
+			scoreBox.setText("score:"+score);
 		}else {
 			score-=prizeMoney2;
+			scoreBox.setText("score:"+score);
+			JOptionPane.showMessageDialog(null, "NOPE");
 		}
 		String r = JOptionPane.showInputDialog(
 				"a remake of this scary movie was released on 6/6/2006 30 years after the release of the original");
@@ -164,21 +183,26 @@ public class Jeopardy implements ActionListener {
 		if (r.equals("What is The Omen")) {
 			JOptionPane.showMessageDialog(null, "correct");
 			score+=prizeMoney4;
-			
+			scoreBox.setText("score:"+score);
 		}else {
 			score-=prizeMoney4;
+			scoreBox.setText("score:"+score);
+			JOptionPane.showMessageDialog(null, "NOPE");
 		}
 		String s = JOptionPane.showInputDialog(
-				"a remake of this scary movie was released on 6/6/2006 30 years after the release of the original");
+				"Mike Ditka & Tony Dorsett prowled the field as Panthers for this school");
 		// Use a pop up to ask the user the question
 
 		// If the answer is correct
-		if (s.equals("What is The Omen")) {
+		if (s.equals("What is University of Pittsburgh")) {
 			JOptionPane.showMessageDialog(null, "correct");
 			score+=prizeMoney6;
+			scoreBox.setText("score:"+score);
 			
 		}else {
 			score-=prizeMoney6;
+			scoreBox.setText("score:"+score);
+			JOptionPane.showMessageDialog(null, "NOPE");
 		}
 		String t = JOptionPane.showInputDialog(
 				"a remake of this scary movie was released on 6/6/2006 30 years after the release of the original");
@@ -188,9 +212,11 @@ public class Jeopardy implements ActionListener {
 		if (t.equals("What is The Omen")) {
 			JOptionPane.showMessageDialog(null, "correct");
 			score+=prizeMoney8;
-			
+			scoreBox.setText("score:"+score);
 		}else {
 			score-=prizeMoney8;
+			scoreBox.setText("score:"+score);
+			JOptionPane.showMessageDialog(null, "NOPE");
 		}
 		// Increase the score by the prizeMoney
 
@@ -227,7 +253,7 @@ updateScore();
 
 	private Component makeScorePanel() {
 		JPanel panel = new JPanel();
-	scoreBox.setText(""+score);
+		scoreBox.setText("score:"+score);
 		panel.add(scoreBox);
 		panel.setBackground(Color.CYAN);
 		return panel;
